@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>음료 자판기</title>
+  <link rel="stylesheet" href="VM.css">
+</head>
+
+<body>
+  <div id="wrapper">
+    <h1>음료 자판기</h1>
+
+    <!-- 음료 메뉴 -->
+    <div id="menu">
+      <div class="drink">
+
+        <!-- 포카리 -->
+        <article id="pocaA">
+          <img src="images/pocaOut.png" alt="포카리">
+          <h3>가격 : <span></span>원</h3>
+          <button class="drinkBtn" id="poca">포카리</button>
+        </article>
+
+        <!-- 콜라 -->
+        <article id="colaA">
+          <img src="images/colaOut.png" alt="코카콜라">
+          <h3>가격 : <span></span>원</h3>
+          <button class="drinkBtn" id="cola">코카콜라</button>
+        </article>
+
+        <!-- 환타 -->
+        <article id="fantaA">
+          <img src="images/fantaOut.png" alt="환타">
+          <h3>가격 : <span></span>원</h3>
+          <button class="drinkBtn" id="fanta">환타</button>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- 동전 / 투입 금액 -->
+    <div id="led">
+      <label>동전: </label>
+      <input type="text" id="coin" value="0">원
+      <button id="inputMoney">동전입력</button>
+
+      <label>투입금액:
+        <input type="text" id="inMoney" value="0" readonly>원
+      </label>
+    </div>
+
+    <!-- 동전 투입 및 거스름돈 -->
+    <div id="coinBox">
+
+      <div id="coins">
+        <img src="images/coin500.png" class="coin" alt="500" draggable="true">
+        <img src="images/coin100.png" class="coin" alt="100" draggable="true">
+        <img src="images/coin50.png" class="coin" alt="50" draggable="true">
+      </div>
+
+      <div id="inCoins">
+        <div id="slot"></div>
+      </div>
+
+      <div id="outCoins">
+        <textarea id="exchangeCoins" rows="2" cols="10"></textarea>
+        <button id="exchangCoins"></button>
+      </div>
+
+    </div>
+
+    <!-- 관리자 버튼 -->
+    <button id="adminToggle">🔑관리자 모드</button>
+
+    <!-- 음료 출력 -->
+    <div id="output">
+      <div id="outDrinks">
+        <div id="outDrink" style="visibility: hidden;">
+          <img src="images/pocaOut.png" />
+        </div>
+      </div>
+    </div>
+
+    <!-- 관리자 패널 -->
+    <div id="adminPanel">
+      <h3>관리자 패널</h3>
+
+      <fieldset>
+        <legend>재고 설정</legend>
+        포카리: <input type="number" id="stockPoca"><br>
+        코카콜라: <input type="number" id="stockCola"><br>
+        환타: <input type="number" id="stockFanta"><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>가격 설정</legend>
+        포카리: <input type="number" id="pricePoca"><br>
+        코카콜라: <input type="number" id="priceCola"><br>
+        환타: <input type="number" id="priceFanta"><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>총 판매 수입</legend>
+        <p id="totalSalesDisplay">0 원</p>
+      </fieldset>
+
+      <button id="applyAdminChanges">변경 사항 적용</button>
+      <button id="closeAdmin">닫기</button>
+    </div>
+
+  </div>
+
+  <!-- 구매 목록 -->
+  <div id="baguni">
+    <h2>구매 목록</h2>
+
+    <div data-name="포카리" style="display:none">
+      <img src="images/pocaOut.png" width="80" />
+      <p>포카리 x <span class="count">0</span></p>
+    </div>
+
+    <div data-name="코카콜라" style="display:none">
+      <img src="images/colaOut.png" width="80" />
+      <p>코카콜라 x <span class="count">0</span></p>
+    </div>
+
+    <div data-name="환타" style="display:none">
+      <img src="images/fantaOut.png" width="80" />
+      <p>환타 x <span class="count">0</span></p>
+    </div>
+  </div>
+
+  <script src="VM.js"></script>
+</body>
+
+</html>
